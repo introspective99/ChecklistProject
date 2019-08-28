@@ -9,3 +9,4 @@ C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\Checkl
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csproj.CoreCompileInputs.cache
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.exe
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.pdb
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.Forms.CompletedTasksForm.resources

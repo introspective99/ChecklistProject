@@ -23,12 +23,12 @@ namespace ChecklistProject.Forms
             ChecklistTask testTask = new ChecklistTask()
             {
                 Description = taskDescriptionTextbox.Text,
-                DueDate = dueDateCalendar.SelectionRange.Start
+                DueDate = dueDateCalendar.SelectionRange.Start,
+                CompletionStatus = false,
             };
             ChecklistForm.taskList.Add(testTask);
             this.Close();
         }
-
         private void CancelNewTaskButton_Click(object sender, EventArgs e)
         {
             this.Close();

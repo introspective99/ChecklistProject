@@ -53,6 +53,12 @@
     <Compile Include="Forms\ChecklistForm.Designer.cs">
       <DependentUpon>ChecklistForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CompletedTasksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CompletedTasksForm.Designer.cs">
+      <DependentUpon>CompletedTasksForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TaskEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,12 +66,15 @@
       <DependentUpon>TaskEntryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\Logic.cs" />
-    <Compile Include="Objects\AllTasks.cs" />
     <Compile Include="Objects\ChecklistTask.cs" />
+    <Compile Include="Objects\CompletedTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ChecklistForm.resx">
       <DependentUpon>ChecklistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CompletedTasksForm.resx">
+      <DependentUpon>CompletedTasksForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskEntryForm.resx">
       <DependentUpon>TaskEntryForm.cs</DependentUpon>
