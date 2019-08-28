@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ChecklistProject.Forms;
+using ChecklistProject.Interfaces;
 using ChecklistProject.Objects;
+using ChecklistProject.ProjectLogic;
 
 namespace ChecklistProject.Forms
 {
     public partial class TaskEntryForm : Form
     {
+        IOpenTasksLogic logic = new Logic();
         public TaskEntryForm()
         {
             InitializeComponent();
@@ -20,13 +23,9 @@ namespace ChecklistProject.Forms
 
         private void ConfirmNewTaskButton_Click(object sender, EventArgs e)
         {
-            ChecklistTask testTask = new ChecklistTask()
-            {
-                Description = taskDescriptionTextbox.Text,
-                DueDate = dueDateCalendar.SelectionRange.Start,
-                CompletionStatus = false,
-            };
-            ChecklistForm.taskList.Add(testTask);
+            var taskDescription = taskDescriptionTextbox.Text;
+            var dueDate = dueDateCalendar.SelectionRange.Start;
+            logic.GetTaskFromInputData(taskDescription, dueDate);
             this.Close();
         }
         private void CancelNewTaskButton_Click(object sender, EventArgs e)

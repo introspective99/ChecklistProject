@@ -1,6 +1,6 @@
 ﻿namespace ChecklistProject
 {
-    partial class ChecklistForm
+    partial class OpenTasksForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.newTaskButton = new System.Windows.Forms.Button();
             this.removeTaskButton = new System.Windows.Forms.Button();
             this.completeTasksButton = new System.Windows.Forms.Button();
+            this.exportTasksButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.checklistDisplayGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.newTaskButton.Location = new System.Drawing.Point(10, 514);
             this.newTaskButton.Name = "newTaskButton";
-            this.newTaskButton.Size = new System.Drawing.Size(130, 25);
+            this.newTaskButton.Size = new System.Drawing.Size(66, 25);
             this.newTaskButton.TabIndex = 1;
             this.newTaskButton.Text = "New Task";
             this.newTaskButton.UseVisualStyleBackColor = true;
@@ -57,7 +58,7 @@
             // 
             // removeTaskButton
             // 
-            this.removeTaskButton.Location = new System.Drawing.Point(143, 514);
+            this.removeTaskButton.Location = new System.Drawing.Point(82, 514);
             this.removeTaskButton.Name = "removeTaskButton";
             this.removeTaskButton.Size = new System.Drawing.Size(133, 25);
             this.removeTaskButton.TabIndex = 3;
@@ -67,25 +68,36 @@
             // 
             // completeTasksButton
             // 
-            this.completeTasksButton.Location = new System.Drawing.Point(279, 514);
+            this.completeTasksButton.Location = new System.Drawing.Point(221, 514);
             this.completeTasksButton.Name = "completeTasksButton";
-            this.completeTasksButton.Size = new System.Drawing.Size(130, 25);
+            this.completeTasksButton.Size = new System.Drawing.Size(93, 25);
             this.completeTasksButton.TabIndex = 4;
             this.completeTasksButton.Text = "Complete Tasks";
             this.completeTasksButton.UseVisualStyleBackColor = true;
             this.completeTasksButton.Click += new System.EventHandler(this.CompleteTasksButton_Click);
             // 
-            // ChecklistForm
+            // exportTasksButton
+            // 
+            this.exportTasksButton.Location = new System.Drawing.Point(320, 514);
+            this.exportTasksButton.Name = "exportTasksButton";
+            this.exportTasksButton.Size = new System.Drawing.Size(90, 25);
+            this.exportTasksButton.TabIndex = 5;
+            this.exportTasksButton.Text = "Export Tasks";
+            this.exportTasksButton.UseVisualStyleBackColor = true;
+            this.exportTasksButton.Click += new System.EventHandler(this.ExportTasksButton_Click);
+            // 
+            // OpenTasksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 542);
+            this.ClientSize = new System.Drawing.Size(413, 543);
+            this.Controls.Add(this.exportTasksButton);
             this.Controls.Add(this.completeTasksButton);
             this.Controls.Add(this.removeTaskButton);
             this.Controls.Add(this.newTaskButton);
             this.Controls.Add(this.checklistDisplayGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ChecklistForm";
+            this.Name = "OpenTasksForm";
             this.Text = "Checklist";
             ((System.ComponentModel.ISupportInitialize)(this.checklistDisplayGridView)).EndInit();
             this.ResumeLayout(false);
@@ -98,6 +110,7 @@
         private System.Windows.Forms.Button newTaskButton;
         private System.Windows.Forms.Button removeTaskButton;
         private System.Windows.Forms.Button completeTasksButton;
+        private System.Windows.Forms.Button exportTasksButton;
     }
 }
 

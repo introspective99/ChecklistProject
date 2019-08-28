@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows" />
@@ -47,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\ChecklistForm.cs">
+    <Compile Include="Forms\OpenTasksForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChecklistForm.Designer.cs">
-      <DependentUpon>ChecklistForm.cs</DependentUpon>
+    <Compile Include="Forms\OpenTasksForm.Designer.cs">
+      <DependentUpon>OpenTasksForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CompletedTasksForm.cs">
       <SubType>Form</SubType>
@@ -65,13 +66,15 @@
     <Compile Include="Forms\TaskEntryForm.Designer.cs">
       <DependentUpon>TaskEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logic\Logic.cs" />
-    <Compile Include="Objects\ChecklistTask.cs" />
+    <Compile Include="Interfaces\ICompletedTasksLogic.cs" />
+    <Compile Include="Interfaces\IOpenTasksLogic.cs" />
+    <Compile Include="ProjectLogic\Logic.cs" />
+    <Compile Include="Objects\OpenTasks.cs" />
     <Compile Include="Objects\CompletedTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ChecklistForm.resx">
-      <DependentUpon>ChecklistForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OpenTasksForm.resx">
+      <DependentUpon>OpenTasksForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompletedTasksForm.resx">
       <DependentUpon>CompletedTasksForm.cs</DependentUpon>

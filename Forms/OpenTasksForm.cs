@@ -9,19 +9,20 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChecklistProject.Forms;
+using ChecklistProject.Interfaces;
 using ChecklistProject.Objects;
+using ChecklistProject.ProjectLogic;
 
 namespace ChecklistProject
 {
-    public partial class ChecklistForm : Form
+    public partial class OpenTasksForm : Form
     {
-        public static BindingList<ChecklistTask> taskList = new BindingList<ChecklistTask>();
-        public static BindingList<CompletedTask> completedTasks = new BindingList<CompletedTask>();
-
-        public ChecklistForm()
+        IOpenTasksLogic logic = new Logic();
+        public OpenTasksForm()
         {
             InitializeComponent();
-            checklistDisplayGridView.DataSource = taskList;
+            logic.ImportAllData();
+            checklistDisplayGridView.DataSource = Logic.taskList;
         }
         private void NewTaskButton_Click(object sender, EventArgs e)
         {
@@ -35,33 +36,26 @@ namespace ChecklistProject
                 checklistDisplayGridView.Rows.RemoveAt(dataRow.Index);
             }
         }
-
         private void CompleteTasksButton_Click(object sender, EventArgs e)
         {
             CompletedTasksForm completedTasksForm = new CompletedTasksForm();
             completedTasksForm.ShowDialog();
 
         }
-
         private void ChecklistDisplayGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewCell cell in checklistDisplayGridView.SelectedCells)
+            foreach (DataGridViewCell selectedCell in checklistDisplayGridView.SelectedCells)
             {
-                if (cell.Value.Equals(true))
-                {
-                    DataGridViewRow selectedRow = new DataGridViewRow();
-                    selectedRow = checklistDisplayGridView.Rows[cell.RowIndex];
-                    ChecklistTask selectedChecklistTask = (ChecklistTask)selectedRow.DataBoundItem;
-                    CompletedTask compTask = new CompletedTask()
-                    {
-                        Description = selectedChecklistTask.Description,
-                        DueDate = selectedChecklistTask.DueDate,
-                        CompletionStatus = true,
-                    };
-                    completedTasks.Add(compTask);
-                    taskList.Remove(selectedChecklistTask);
-                }
+                DataGridViewRow selectedRow = new DataGridViewRow();
+                selectedRow = checklistDisplayGridView.Rows[selectedCell.RowIndex];
+                logic.SendToCompletedTaskList(selectedCell, selectedRow);
             }
+        }
+
+        private void ExportTasksButton_Click(object sender, EventArgs e)
+        {
+            Logic.ExportAllData();
+            MessageBox.Show("Lists Exported");
         }
     }
 }

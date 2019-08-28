@@ -16,7 +16,7 @@ namespace ChecklistProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChecklistForm());
+            Application.Run(new OpenTasksForm());
         }
     }
 }
