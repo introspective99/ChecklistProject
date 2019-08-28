@@ -1,0 +1,11 @@
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\ChecklistProject.exe.config
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\ChecklistProject.exe
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\ChecklistProject.pdb
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csprojAssemblyReference.cache
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.ChecklistForm.resources
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.Forms.TaskEntryForm.resources
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.Properties.Resources.resources
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csproj.GenerateResource.cache
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csproj.CoreCompileInputs.cache
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.exe
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.pdb
