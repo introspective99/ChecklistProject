@@ -21,20 +21,17 @@ namespace ChecklistProject
             InitializeComponent();
             checklistDisplayGridView.DataSource = taskList;
         }
-
         private void NewTaskButton_Click(object sender, EventArgs e)
         {
             TaskEntryForm taskEntryForm = new TaskEntryForm();
             taskEntryForm.Show();
         }
-
         private void RemoveTaskButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow dataRow in this.checklistDisplayGridView.SelectedRows)
             {
                 checklistDisplayGridView.Rows.RemoveAt(dataRow.Index);
             }
-            
         }
     }
 }
