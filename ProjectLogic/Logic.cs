@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace ChecklistProject.ProjectLogic
 {
@@ -80,5 +81,6 @@ namespace ChecklistProject.ProjectLogic
                 completedTasks.Add(completedTask);
             }
         }
+
     }
 }

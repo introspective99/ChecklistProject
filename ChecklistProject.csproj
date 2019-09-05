@@ -72,6 +72,7 @@
     <Compile Include="Objects\OpenTasks.cs" />
     <Compile Include="Objects\CompletedTask.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectLogic\SQLLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\OpenTasksForm.resx">
       <DependentUpon>OpenTasksForm.cs</DependentUpon>

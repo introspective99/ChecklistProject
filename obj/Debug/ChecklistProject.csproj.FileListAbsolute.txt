@@ -2,7 +2,6 @@ C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\Checkl
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\ChecklistProject.exe
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\ChecklistProject.pdb
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csprojAssemblyReference.cache
-C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.ChecklistForm.resources
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.Forms.TaskEntryForm.resources
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.Properties.Resources.resources
 C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csproj.GenerateResource.cache
@@ -24,3 +23,6 @@ C:\Users\clair\source\repos\ChecklistProject\obj\Debug\ChecklistProject.pdb
 C:\Users\clair\source\repos\ChecklistProject\bin\Debug\Newtonsoft.Json.dll
 C:\Users\clair\source\repos\ChecklistProject\obj\Debug\ChecklistProject.csproj.CopyComplete
 C:\Users\clair\source\repos\ChecklistProject\obj\Debug\ChecklistProject.OpenTasksForm.resources
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.OpenTasksForm.resources
+C:\Users\UFAC014\source\repos\ChecklistProject\ChecklistProject\obj\Debug\ChecklistProject.csproj.CopyComplete

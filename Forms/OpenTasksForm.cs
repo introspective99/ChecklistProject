@@ -54,8 +54,11 @@ namespace ChecklistProject
 
         private void ExportTasksButton_Click(object sender, EventArgs e)
         {
-            Logic.ExportAllData();
-            MessageBox.Show("Lists Exported");
+            //Logic.ExportAllData();
+            //MessageBox.Show("Lists Exported");
+            SQLLogic.ClearSQLTable();
+            SQLLogic.SendToSQLServer();
+            SQLLogic.sqlConnection.Close();
         }
     }
 }
