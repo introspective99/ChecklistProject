@@ -1,12 +1,9 @@
 ﻿using ChecklistProject.Interfaces;
 using ChecklistProject.Objects;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace ChecklistProject.ProjectLogic
 {
@@ -37,6 +34,7 @@ namespace ChecklistProject.ProjectLogic
                 }
             }
             sqlConnection.Close();
+            Thread.Sleep(500);
         }
         public void ReadMasterListFromSQL()
         {

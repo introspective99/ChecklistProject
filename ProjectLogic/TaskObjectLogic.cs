@@ -1,15 +1,9 @@
 ﻿using ChecklistProject.Interfaces;
 using ChecklistProject.Objects;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using System.IO;
-using System.Data.SqlClient;
 
 namespace ChecklistProject.ProjectLogic
 {
