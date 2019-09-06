@@ -17,21 +17,21 @@ namespace ChecklistProject.Forms
 {
     public partial class CompletedTasksForm : Form
     {
-        ICompletedTasksLogic logic = new Logic();
+        ISQLLogic sqlLogic = new SQLLogic();
         public CompletedTasksForm()
         {
             InitializeComponent();
-            completedTasksGridview.DataSource = Logic.completedTasks;
+            completedTasksGridview.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == true).ToList();
         }
 
-        private void CompletedTasksGridview_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void CompletedTasksGridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewCell selectedCompletedCell in completedTasksGridview.SelectedCells)
-            {
-                DataGridViewRow selectedCompletedRow = new DataGridViewRow();
-                selectedCompletedRow = completedTasksGridview.Rows[selectedCompletedCell.RowIndex];
-                logic.SendToTaskList(selectedCompletedCell, selectedCompletedRow);
-            }
+            completedTasksGridview.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+        private void CompletedTasksGridview_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            completedTasksGridview.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == true).ToList();
+            sqlLogic.SendMasterListToSQLServer();
         }
     }
 }

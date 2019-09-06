@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ChecklistProject.Objects
 {
-    public class CompletedTask
+    public class TaskObject
     {
         [DisplayName("Task Description")]
         public string Description { get; set; }

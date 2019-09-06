@@ -1,7 +1,6 @@
 ﻿using ChecklistProject.Objects;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +8,10 @@ using System.Windows.Forms;
 
 namespace ChecklistProject.Interfaces
 {
-    interface ICompletedTasksLogic
+    interface ITaskObjectLogic
     {
-        void SendToTaskList(DataGridViewCell selectedCompletedCell, DataGridViewRow selectedCompletedRow);
+        void GetTaskFromInputData(String taskDescription, DateTime dueDate);
     }
+
+
 }

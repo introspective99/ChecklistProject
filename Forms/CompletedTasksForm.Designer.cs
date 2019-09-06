@@ -40,7 +40,8 @@
             this.completedTasksGridview.Name = "completedTasksGridview";
             this.completedTasksGridview.Size = new System.Drawing.Size(349, 440);
             this.completedTasksGridview.TabIndex = 0;
-            this.completedTasksGridview.CurrentCellDirtyStateChanged += new System.EventHandler(this.CompletedTasksGridview_CurrentCellDirtyStateChanged);
+            this.completedTasksGridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CompletedTasksGridview_CellContentClick);
+            this.completedTasksGridview.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CompletedTasksGridview_CellValueChanged);
             // 
             // CompletedTasksForm
             // 

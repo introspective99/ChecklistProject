@@ -15,7 +15,8 @@ namespace ChecklistProject.Forms
 {
     public partial class TaskEntryForm : Form
     {
-        IOpenTasksLogic logic = new Logic();
+        ITaskObjectLogic logic = new TaskObjectLogic();
+        ISQLLogic sqlLogic = new SQLLogic();
         public TaskEntryForm()
         {
             InitializeComponent();
@@ -23,14 +24,13 @@ namespace ChecklistProject.Forms
 
         private void ConfirmNewTaskButton_Click(object sender, EventArgs e)
         {
-            var taskDescription = taskDescriptionTextbox.Text;
-            var dueDate = dueDateCalendar.SelectionRange.Start;
-            logic.GetTaskFromInputData(taskDescription, dueDate);
-            this.Close();
+            logic.GetTaskFromInputData(taskDescriptionTextbox.Text, dueDateCalendar.SelectionRange.Start);
+            sqlLogic.SendMasterListToSQLServer();
+            this.Dispose();
         }
         private void CancelNewTaskButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
     }
 }

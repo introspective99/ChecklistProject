@@ -1,4 +1,5 @@
-﻿using ChecklistProject.Objects;
+﻿using ChecklistProject.Interfaces;
+using ChecklistProject.Objects;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,16 +10,22 @@ using System.Threading.Tasks;
 
 namespace ChecklistProject.ProjectLogic
 {
-    public static class SQLLogic
+    public class SQLLogic : ISQLLogic
     {
-        public static string connectionString = @"Data Source=CIM-STF-00417\CMSQLSERVER;Initial Catalog = ChecklistProjectDB; Integrated Security = True";
-
-        public static SqlConnection sqlConnection = new SqlConnection(connectionString);
-        public static void SendToSQLServer()
+        public void SendMasterListToSQLServer()
         {
-            //sqlConnection.Open();
-            string sqlString = "INSERT INTO ChecklistTasksDB([Task Description],[Due Date],[Completion Status]) VALUES(@param1,@param2,@param3)";
-            foreach (OpenTasks task in Logic.taskList)
+            var connectionString = @"Data Source=CIM-STF-00417\CMSQLSERVER;Initial Catalog = ChecklistProjectDB; Integrated Security = True";
+            var sqlConnection  = new SqlConnection(connectionString);
+
+            string sqlString = "INSERT INTO ChecklistTasksTable([Task Description],[Due Date],[Completion Status]) VALUES(@param1,@param2,@param3)";
+            sqlConnection.Open();
+            string sqlDeleteString = "DELETE FROM ChecklistTasksTable";
+            using (SqlCommand cmd = new SqlCommand(sqlDeleteString, sqlConnection))
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            foreach (TaskObject task in TaskObjectLogic.masterTaskList)
             {
                 using (SqlCommand cmd = new SqlCommand(sqlString, sqlConnection))
                 {
@@ -29,43 +36,39 @@ namespace ChecklistProject.ProjectLogic
                     cmd.ExecuteNonQuery();
                 }
             }
+            sqlConnection.Close();
         }
-        public static void ClearSQLTable()
+        public void ReadMasterListFromSQL()
         {
-            sqlConnection.Open();
-            string sqlString = "DELETE FROM ChecklistTasksDB";
-            using (SqlCommand cmd = new SqlCommand(sqlString, sqlConnection))
-            {
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-            }
-        }
-        public static void ReadFromSQL()
-        {
+            var connectionString = @"Data Source=CIM-STF-00417\CMSQLSERVER;Initial Catalog = ChecklistProjectDB; Integrated Security = True";
+            var sqlConnection = new SqlConnection(connectionString);
+             
             using (sqlConnection)
             {
                 sqlConnection.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM ChecklisttasksDB", sqlConnection))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM ChecklistTasksTable", sqlConnection))
                 {
-                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if(reader != null)
+                        if (reader != null)
                         {
                             while (reader.Read())
                             {
-                                OpenTasks openTask = new OpenTasks()
+                                TaskObject openTask = new TaskObject()
                                 {
                                     Description = reader["Task Description"].ToString(),
                                     DueDate = (DateTime)reader["Due Date"],
                                     CompletionStatus = (bool)reader["Completion Status"],
                                 };
-                                Logic.taskList.Add(openTask);
+                                TaskObjectLogic.masterTaskList.Add(openTask);
                             }
                         }
                     }
                 }
             }
+            sqlConnection.Close();
         }
     }
 }
+
 

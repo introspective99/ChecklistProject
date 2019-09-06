@@ -12,17 +12,18 @@ using ChecklistProject.Forms;
 using ChecklistProject.Interfaces;
 using ChecklistProject.Objects;
 using ChecklistProject.ProjectLogic;
+using System.Data.EntityClient;
 
 namespace ChecklistProject
 {
     public partial class OpenTasksForm : Form
     {
-        IOpenTasksLogic logic = new Logic();
+        ISQLLogic sqlLogic = new SQLLogic();
         public OpenTasksForm()
         {
             InitializeComponent();
-            logic.ImportAllData();
-            checklistDisplayGridView.DataSource = Logic.taskList;
+            sqlLogic.ReadMasterListFromSQL();
+            checklistDisplayGridView.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == false).ToList();
         }
         private void NewTaskButton_Click(object sender, EventArgs e)
         {
@@ -33,32 +34,31 @@ namespace ChecklistProject
         {
             foreach (DataGridViewRow dataRow in this.checklistDisplayGridView.SelectedRows)
             {
-                checklistDisplayGridView.Rows.RemoveAt(dataRow.Index);
+                TaskObjectLogic.RemoveTask(dataRow);
             }
+            sqlLogic.SendMasterListToSQLServer();
+            checklistDisplayGridView.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == false).ToList();
         }
         private void CompleteTasksButton_Click(object sender, EventArgs e)
         {
             CompletedTasksForm completedTasksForm = new CompletedTasksForm();
             completedTasksForm.ShowDialog();
-
         }
-        private void ChecklistDisplayGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void ChecklistDisplayGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewCell selectedCell in checklistDisplayGridView.SelectedCells)
             {
-                DataGridViewRow selectedRow = new DataGridViewRow();
-                selectedRow = checklistDisplayGridView.Rows[selectedCell.RowIndex];
-                logic.SendToCompletedTaskList(selectedCell, selectedRow);
+                checklistDisplayGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-
-        private void ExportTasksButton_Click(object sender, EventArgs e)
+        private void ChecklistDisplayGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //Logic.ExportAllData();
-            //MessageBox.Show("Lists Exported");
-            SQLLogic.ClearSQLTable();
-            SQLLogic.SendToSQLServer();
-            SQLLogic.sqlConnection.Close();
+            checklistDisplayGridView.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == false).ToList();
+            sqlLogic.SendMasterListToSQLServer();
+        }
+
+        private void OpenTasksForm_Activated(object sender, EventArgs e)
+        {
+            checklistDisplayGridView.DataSource = TaskObjectLogic.masterTaskList.Where(item => item.CompletionStatus == false).ToList();
         }
     }
 }

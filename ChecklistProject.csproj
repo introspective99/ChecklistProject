@@ -36,6 +36,7 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,11 +67,10 @@
     <Compile Include="Forms\TaskEntryForm.Designer.cs">
       <DependentUpon>TaskEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ICompletedTasksLogic.cs" />
-    <Compile Include="Interfaces\IOpenTasksLogic.cs" />
-    <Compile Include="ProjectLogic\Logic.cs" />
-    <Compile Include="Objects\OpenTasks.cs" />
-    <Compile Include="Objects\CompletedTask.cs" />
+    <Compile Include="Interfaces\ITaskObjectLogic.cs" />
+    <Compile Include="Interfaces\ISQLLogic.cs" />
+    <Compile Include="ProjectLogic\TaskObjectLogic.cs" />
+    <Compile Include="Objects\TaskObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectLogic\SQLLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
